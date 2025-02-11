@@ -55,7 +55,24 @@
         </div>
     </form>
 
+    <script type="module">
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
+     import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-database.js";
+     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyCO6eht5DllhUaodOFfU_yrhIjMPzrI860",
+        authDomain: "firebank-d29c6.firebaseapp.com",
+        databaseURL: "https://firebank-d29c6-default-rtdb.firebaseio.com",
+        projectId: "firebank-d29c6",
+        storageBucket: "firebank-d29c6.firebasestorage.app",
+        messagingSenderId: "956045682523",
+        appId: "1:956045682523:web:55639153b31e6635df9c7e"
+      };
     
+      
+    </script>
+
     <!-- Bootstrap Js Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
