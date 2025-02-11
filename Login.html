@@ -8,54 +8,10 @@
   </head>
 
   <body>
-    <!-- This section is for the admin panel -->
-    <h1>Add New Employee User</h1>
-    <form class="m-4 w-25">
-        <!-- Email Address -->
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="EmailInp" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-          </div>
-          <!-- Password -->
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="PasswordInp" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-          </div>
-          <!-- Full Name -->
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="NameInp" placeholder="name input">
-            <label for="floatingPassword">Full Name</label>
-          </div>
 
-          <!-- Static backdrop - Modal(alert-like) -->
-           <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary p-2" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-          Process Employee
-        </button>
 
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Action</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                   <!-- Password -->
-                  <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="AdminPasswordInp" placeholder="Password">
-                    <label for="floatingPassword">Enter Admin Password</label>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="AddEmployeeBtn">Add Employee</button>
-              </div>
-            </div>
-          </div>
-        </div>
-    </form>
 
+    
     <script type="module">
      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
      import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-database.js";
