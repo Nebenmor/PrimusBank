@@ -23,19 +23,16 @@
             <form class="d-flex" role="search">
               <input class="form-control me-2" type="email" id="EmailInp" placeholder="Enter Email">
               <input class="form-control me-2" type="password" id="PasswordInp" placeholder="Enter Password">
-              <bu
-              tton class="btn btn-outline-light" type="submit">Login</button>
+              <button class="btn btn-outline-light" type="button" id="LoginBtn">Login</button>
             </form>
           </div>
         </div>
       </nav>
 
-
-
     <script type="module">
      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
-     import { getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-database.js";
-     import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
+     import { getDatabase } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-database.js";
+     import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-auth.js";
 
       const firebaseConfig = {
         apiKey: "AIzaSyCO6eht5DllhUaodOFfU_yrhIjMPzrI860",
@@ -54,39 +51,16 @@
 
       const email = document.getElementById("EmailInp");
       const pass = document.getElementById("PasswordInp");
-      const name = document.getElementById("NameInp");
-      const AddBtn = document.getElementById("AddEmployeeBtn");
-      const AdminPass = document.getElementById("AdminPasswordInp");
+      const LoginBtn = document.getElementById("LoginBtn");
+      
+    // If user is already signed in, it moves the user to the CreateNewAccount page
+      onAuthStateChanged(auth, (user) => {
+        if(user) {
+            window.location.href = "CreateNewAccount.html";
+        }
+      })
 
-      // First checks if the admin's password is correct before registering new user
-      const RegisterEmployeeUser = () => {
-        // Authenticates admins credentials
-        signInWithEmailAndPassword(auth, "admin@bank.com", AdminPass.value)
-        .then((admincred) => {
-          // Creates new employee user
-          createUserWithEmailAndPassword(auth, email.value, pass.value)
-          .then((creds) => {
-            // Writes or replace Email and FullName employee details to EmployeeList based on uid
-            // Note: ref points to the location for writing, while set does the writing/overwriting
-            set(ref(db, "EmployeeList/" + creds.user.uid), {
-              Email: email.value,
-              FullName: name.value
-            });
-            signOut(auth);
-            AdminPass.value = "";
-            alert("Employee User was Created!");
-          })
-          .catch((error) => {
-            alert("Error: " + error.message);
-          })
-        })
-
-        .catch((error) => {
-          alert("Error: " + error)
-        })
-      }
-
-      AddBtn.addEventListener("click", RegisterEmployeeUser);      
+      
     </script>
 
     <!-- Bootstrap Js Script -->

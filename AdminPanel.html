@@ -110,7 +110,16 @@
         })
       }
 
-      AddBtn.addEventListener("click", RegisterEmployeeUser);      
+      //Listens to click event to execute the callback function
+      AddBtn.addEventListener("click", RegisterEmployeeUser);
+      
+      //Listens to keyboard press to execute the callback function 
+      document.addEventListener("keydown", (e) => {
+        if(e.key === "Enter") {
+          RegisterEmployeeUser();
+        }
+        console.log(e.key);
+      })
     </script>
 
     <!-- Bootstrap Js Script -->
