@@ -3,58 +3,34 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>fireBank/AdminPanel</title>
+    <title>fireBank/Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
 
   <body>
-    <!-- This section is for the admin panel -->
-    <h1>Add New Employee User</h1>
-    <form class="m-4 w-25">
-        <!-- Email Address -->
-          <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="EmailInp" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-          </div>
-          <!-- Password -->
-          <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="PasswordInp" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-          </div>
-          <!-- Full Name -->
-          <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="NameInp" placeholder="name input">
-            <label for="floatingPassword">Full Name</label>
-          </div>
-
-          <!-- Static backdrop - Modal(alert-like) -->
-           <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary p-2" style="width: 100%;" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-          Process Employee
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Action</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                   <!-- Password -->
-                  <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="AdminPasswordInp" placeholder="Password">
-                    <label for="floatingPassword">Enter Admin Password</label>
-                  </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="AddEmployeeBtn">Add Employee</button>
-              </div>
-            </div>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark>
+        <div class="container-fluid">
+          <a class="navbar-brand text-light" href="#">Bank Management System</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="email" id="EmailInp" placeholder="Enter Email">
+              <input class="form-control me-2" type="password" id="PasswordInp" placeholder="Enter Password">
+              <bu
+              tton class="btn btn-outline-light" type="submit">Login</button>
+            </form>
           </div>
         </div>
-    </form>
+      </nav>
+
+
 
     <script type="module">
      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.0/firebase-app.js";
