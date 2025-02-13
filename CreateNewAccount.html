@@ -121,7 +121,34 @@
        }
       })
 
-   
+    // Registers new customer
+      const RegisterCustomer = () => {
+        const accnbr = "00001234" + phnumInp.value;
+
+        set(ref(db, "CustomerList/" + accnbr), {
+            Email: email.value,
+            AccountTitle: acctitleInp.value,
+            Cnic: cnicInp.value,
+            Phone: phnumInp.value,
+            Balance: balInp.value,
+            AccountNbr: accnbr
+        })
+            .then(()=> {
+                alert("Customer Registered!");
+                // Empties the input fields
+                email.value = "";
+                acctitleInp.value = "";
+                cnicInp.value = "";
+                phnumInp.value = "";
+                balInp.value = ""; 
+                pass.value = "";
+            })
+            .catch(error => {
+                alert("error: " + error);
+            })
+    }
+
+     
     </script>
     <!-- Bootstrap Js Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
