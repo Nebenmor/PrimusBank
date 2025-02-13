@@ -148,6 +148,13 @@
             })
     }
 
+      const Logout = () => {
+        signOut(auth)
+        .then(() => {
+            window.location.href = "Login.html";
+        })
+      }
+
      
     </script>
     <!-- Bootstrap Js Script -->
