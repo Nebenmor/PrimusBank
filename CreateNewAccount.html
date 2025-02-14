@@ -19,6 +19,12 @@
               <li class="nav-item">
                 <a class="nav-link active text-light" aria-current="page" href="CreateNewAccount.html">Create New Account</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="AccountDetails.html">Account Details</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-light" aria-current="page" href="DepositWithdrawal.html">Deposit Withdrawal</a>
+              </li>
             </ul>
             <form class="d-flex">
                 <div class="dropdown">
@@ -36,7 +42,7 @@
         </div>
       </nav>
 
-      <div id="MainDiv" class="w-25 m-4">
+      <div id="MainDiv" class="w-25 m-4" style="display: none;">
         <!-- Email Address -->
           <div class="form-floating mb-3">
             <input type="email" class="form-control" id="EmailInp" placeholder="name@example.com">
@@ -148,6 +154,7 @@
             })
     }
 
+    // Logs out user (bank employee)
       const Logout = () => {
         signOut(auth)
         .then(() => {
