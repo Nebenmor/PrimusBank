@@ -148,6 +148,14 @@
         })
     }
 
+       // Logs out user (bank employee)
+      const Logout = () => {
+        signOut(auth)
+        .then(() => {
+            window.location.href = "Login.html";
+        })
+      }
+
       
     </script>
     <!-- Bootstrap Js Script -->
