@@ -132,7 +132,23 @@
        }
       })
 
-    
+    //   Search Customer's details
+    const SearchCutomersDetails = () => {
+        get(child(dbRef, "CustomerList/" + SearchAccNbrInp.value))
+        .then((snapshot) => {
+           if(snapshot.exists) {
+            email_cus.innerHTML = snapshot.val().Email;
+            acctitle_cus.innerHTML = snapshot.val().AccountTitle;
+            accmbr_cus.innerHTML = snapshot.val().AccountNbr;
+            cnic_cus.innerHTML = snapshot.val().Cnic;
+            phno_cus.innerHTML = snapshot.val().Phone;
+            bal_cus.innerHTML = snapshot.val().Balance;
+            DataDiv.style.display = "block";
+           }
+        })
+    }
+
+      
     </script>
     <!-- Bootstrap Js Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
