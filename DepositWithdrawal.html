@@ -140,6 +140,43 @@
     }
 
 
+    // Performs deposit or withdrawal based on the transaction type selected
+    const DepositWithdrawal = () => {
+        if(TtypeSelect.value == "Withdrawal" && Number(BalInp.value) < Number(AmountInp.value) ) {
+            alert("Balance is too low for this transaction!");
+            return;
+        }
+
+        const balanceUpdate = TtypeSelect.value == "Withdrawal" ? Number(BalInp.value) - Number(AmountInp.value) : Number(BalInp.value) + Number(AmountInp.value);
+        const user = auth.currentUser;
+
+        update(ref(db, "CustomerList/" + accNbr), {
+            Balance: balanceUpdate
+        })
+        .then(() => {
+            set(ref(db, "Transactions/" + randomNumberGenerator()), {
+                OfficerEmail: user.email,
+                OfficerName: UserDrop.innerHTML,
+                DateTime: (new Date()).toLocaleDateString() + " | " + (new Date().toLocaleTimeString()),
+                TransactionType: TtypeSelect.value,
+                Amount: AmountInp.value,
+                AccountNbr: accNbr,
+                AccountTitle: AcctitleInp.value
+            })
+        get(child(dbRef, "CustomerList/" + SearchAccNbrInp.value))
+            .then((snapshot) => {
+            if(snapshot.exists) {
+                BalInp.value = snapshot.val().Balance;
+            }
+            })
+        alert("Transaction was successful!");
+        })
+        .catch((error) => {
+            alert("error: " + error);
+        })
+            
+    }
+
     
     </script>
     <!-- Bootstrap Js Script -->
