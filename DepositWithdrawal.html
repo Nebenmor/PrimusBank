@@ -177,6 +177,14 @@
             
     }
 
+    // Random Number Generator
+    const randomNumberGenerator = () => {
+        const date = new Date();
+        const num = Math.round(Math.random() * 1000) + 1;
+        const num2 = Math.round(Math.random() * 1000) + 1;
+        return date.getUTCMilliseconds() + num.toString() + num2.toString() + date.getUTCMilliseconds();
+    }
+
     
     </script>
     <!-- Bootstrap Js Script -->
