@@ -111,7 +111,23 @@
       let accNbr;
     
       
-      
+      onAuthStateChanged(auth, (user) => {
+       if(user) {
+        get(child(dbRef, "EmployeeList/" + user.uid))
+        .then((snapshot) => {
+            UserDrop.innerHTML = snapshot.val().FullName;
+            UserDrop.disabled = false;
+            MainDiv.style.display = "block";
+        })
+       }
+       else{
+        setTimeout(() => {
+            window.location.href = "Login.html";
+        }, 2000);
+       }
+      })
+
+    
     </script>
     <!-- Bootstrap Js Script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
