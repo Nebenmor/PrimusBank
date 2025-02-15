@@ -127,6 +127,19 @@
        }
       })
 
+    const SearchCutomersDetails = () => {
+        get(child(dbRef, "CustomerList/" + SearchAccNbrInp.value))
+        .then((snapshot) => {
+           if(snapshot.exists) {
+            AcctitleInp.value = snapshot.val().AccountTitle;
+            BalInp.value = snapshot.val().Balance;
+            accNbr = SearchAccNbrInp.value;
+            ActionDiv.style.display = "block";
+           }
+        })
+    }
+
+
     
     </script>
     <!-- Bootstrap Js Script -->
