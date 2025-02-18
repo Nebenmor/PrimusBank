@@ -141,6 +141,47 @@
         })
     }
 
+    const AddTableRows = (transactions) => {
+      let myTransactions = [];
+
+      // Checks if firebase received and is returning the data as objects. It's needed as array
+      if(Array.isArray(transactions)) {
+        myTransactions = transactions
+      }
+      else {
+        myTransactions = Object.values(transactions);
+      }
+
+        let count = 0;
+
+        myTransactions.forEach(transaction => {
+          let trow = document.createElement("tr");
+
+          let sno = document.createElement("td");
+          let OfficerEmail = document.createElement("td");
+          let OfficerName = document.createElement("td");
+          let DateTime = document.createElement("td");
+          let TransactionType = document.createElement("td");
+          let Amount = document.createElement("td");
+          let AccountNbr = document.createElement("td");
+          let AccountTitle = document.createElement("td");
+
+          OfficerEmail.innerHTML = transaction.OfficerEmail;
+          DateTime.innerHTML = transaction.DateTime;
+          TransactionType.innerHTML = transaction.TransactionType;
+          Amount.innerHTML = transaction.Amount;
+          AccountNbr.innerHTML = transaction.AccountNbr;
+          AccountTitle.innerHTML = transaction.AccountTitle;
+          OfficerName.innerHTML = transaction.OfficerName;
+          sno.innerHTML = ++count;
+
+          trow.append(sno, AccountTitle, AccountNbr, TransactionType, Amount, OfficerEmail, OfficerName, DateTime);
+          TransactionTbody.append(trow);
+
+        })
+      }
+    
+
     
     </script>
     <!-- Bootstrap Js Script -->
