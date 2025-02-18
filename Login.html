@@ -61,7 +61,7 @@
         }
       })
 
-      // If user is not already signed in, it takes the user's input then moves him to the CreateNewAccount page
+      // If user is not already signed in, it authenticates the user then moves him to the CreateNewAccount page
       const LoginEmployee = () => {
         signInWithEmailAndPassword(auth, email.value, pass.value)
         .then((creds) => {
