@@ -121,6 +121,26 @@
        }
       })
 
+    const SearchCutomersDetails = () => {
+        get(child(dbRef, "CustomerList/" + SearchAccNbrInp.value))
+        .then((snapshot) => {
+           if(snapshot.exists) {
+            const que = query(ref(db, "Transactions"), orderByChild("AccountNbr"), equalTo(SearchAccNbrInp.value));
+            get(que)
+            .then((snapshot) => {
+              if(snapshot.exists) {
+                DataDiv.style.display = "block";
+                AddTableRows(snapshot.val());
+              }
+            })
+
+           }
+           else {
+            alert("Account number does not exist!")
+           }
+        })
+    }
+
     
     </script>
     <!-- Bootstrap Js Script -->
